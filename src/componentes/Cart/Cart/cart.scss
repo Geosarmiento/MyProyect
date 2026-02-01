@@ -1,0 +1,32 @@
+
+@use "../../../Styles/variables" as *;
+
+
+
+.cart-overlay{
+    padding: 16px;
+    position: absolute;
+    right: 0px;
+    width: 550px;
+    margin-top: 244px;
+    height: auto;
+    background-color: $color-grisOscuro;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-50);
+}
+
+
+.x-icon{
+    cursor: pointer;
+    ;
+}
+
+
+@media (max-width: 600px) {
+    .cart-overlay{
+        width: 100%;;
+     
+   
+      
+    }
+}

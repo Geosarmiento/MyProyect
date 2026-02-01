@@ -1,0 +1,63 @@
+
+@use "../../Styles/_variables.scss" as *;
+
+
+
+.navbarContainer{
+    max-width: 1440px;
+    min-width: 375px;
+    margin: auto;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+  
+    .user{
+        margin-right: 16px;
+    }
+    .shoppingCart{
+        cursor: pointer;
+        margin-right: 16px;
+
+        .totalItem{
+            top:-16px;
+            right: 5px;
+            background-color:$color-danger;
+            color: #fff;
+            border-radius: 10px;
+            padding: 0px 4px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+    }
+    .menu{
+        display: none;
+    }
+
+    h2{
+        color: $color-secundario;
+    }
+    .iconContainer{
+        display: flex;
+        align-items: center;
+    }
+
+
+    
+    
+ 
+}
+
+@media (max-width: 600px) {
+    .navbarContainer{
+        .menu{
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+
