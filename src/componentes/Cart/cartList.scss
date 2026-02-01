@@ -1,0 +1,17 @@
+@use "../../Styles/_variables.scss" as *;
+
+
+
+.prueba{
+    color: white;
+}
+
+.img{
+    width: 60px;
+}
+.cartItems{
+    display: flex;
+    width: 100%;
+    padding: 6px;
+    border-bottom: solid  1px black;
+}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import ProductCard from "../componentes/Products/ProductCard.jsx";
 
-import Search from "./../componentes/Search/Search.jsx"
+import Searchs from "./../componentes/Search/Search.jsx"
 
 import { CartContext } from "../context/CartContext.jsx";
 import { useContext } from "react";
@@ -35,11 +35,11 @@ const Main = () => {
     return (
         <div>
 
-
+            <Searchs data={products} />
 
             <h2>Productos</h2>
 
-            <Search data={products} />
+            
 
 
             <div className='card_container'>

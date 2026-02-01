@@ -1,16 +1,23 @@
-
-
-
 export const products = [
-  { id: 1, title: "Laptop", price: 1200 },
-  { id: 2, title: "Mouse", price: 25 },
-  { id: 3, title: "Teclado", price: 80 },
-  { id: 4, title: "Touch", price: 1200 },
-  { id: 5, title: "Lapiz", price: 25 },
-  { id: 6, title: "Cable", price: 80 },
-  { id: 7, title: "Usb", price: 1200 },
-  { id: 8, title: "Disco Duro", price: 25 },
-  { id: 9, title: "Memoria", price: 80 },
-  
- 
+  { id: 1, name: "Camiseta Urban Classic", description: "Camiseta urbana de algodón con estampado duradero.", price: 19, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Negro", size: ["S", "M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  { id: 2, name: "Camiseta Minimal White", description: "Camiseta blanca ideal para estampados minimalistas.", price: 18, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Blanco", size: ["S", "M", "L", "XL"], weight: "170g", warranty: "6 meses" } },
+  { id: 3, name: "Camiseta Street Style", description: "Estilo urbano con look moderno.", price: 20, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Gris", size: ["M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  { id: 4, name: "Camiseta Tie Dye", description: "Camiseta con efecto tie dye vibrante.", price: 22, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Multicolor", size: ["S", "M", "L"], weight: "185g", warranty: "6 meses" } },
+  { id: 5, name: "Camiseta Vintage Graphic", description: "Estampado con estilo vintage.", price: 23, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Azul", size: ["M", "L", "XL"], weight: "190g", warranty: "8 meses" } },
+  { id: 6, name: "Camiseta Sport Casual", description: "Camiseta ligera para uso diario.", price: 21, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Rojo", size: ["S", "M", "L"], weight: "175g", warranty: "6 meses" } },
+  { id: 7, name: "Camiseta Relax Fit", description: "Corte relajado con diseño confortable.", price: 19, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Beige", size: ["S", "M", "L"], weight: "170g", warranty: "6 meses" } },
+  { id: 8, name: "Camiseta Color Pop", description: "Colores llamativos y vibrantes.", price: 20, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Amarillo", size: ["M", "L", "XL"], weight: "175g", warranty: "7 meses" } },
+  { id: 9, name: "Camiseta Blue Classic", description: "Camiseta clásica en azul.", price: 18, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Azul", size: ["S", "M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  { id: 10, name: "Camiseta Summer Fresh", description: "Perfecta para looks veraniegos.", price: 22, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Turquesa", size: ["M", "L", "XL"], weight: "185g", warranty: "7 meses" } },
+  { id: 11, name: "Camiseta Genérica 11", description: "Descripción de la camiseta genérica 11.", price: 18, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Negro", size: ["S", "M", "L"], weight: "170g", warranty: "6 meses" } },
+  { id: 12, name: "Camiseta Genérica 12", description: "Descripción de la camiseta genérica 12.", price: 19, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Blanco", size: ["S", "M", "L", "XL"], weight: "175g", warranty: "7 meses" } },
+  { id: 13, name: "Camiseta Genérica 13", description: "Descripción de la camiseta genérica 13.", price: 20, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Gris", size: ["M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  { id: 14, name: "Camiseta Genérica 14", description: "Descripción de la camiseta genérica 14.", price: 21, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Azul", size: ["S", "M", "L"], weight: "185g", warranty: "7 meses" } },
+  { id: 15, name: "Camiseta Genérica 15", description: "Descripción de la camiseta genérica 15.", price: 22, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Rojo", size: ["M", "L", "XL"], weight: "190g", warranty: "8 meses" } },
+  { id: 16, name: "Camiseta Genérica 16", description: "Descripción de la camiseta genérica 16.", price: 23, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Amarillo", size: ["S", "M", "L"], weight: "175g", warranty: "6 meses" } },
+  { id: 17, name: "Camiseta Genérica 17", description: "Descripción de la camiseta genérica 17.", price: 18, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Negro", size: ["S", "M", "L", "XL"], weight: "170g", warranty: "7 meses" } },
+  { id: 18, name: "Camiseta Genérica 18", description: "Descripción de la camiseta genérica 18.", price: 19, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Blanco", size: ["M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  { id: 19, name: "Camiseta Genérica 19", description: "Descripción de la camiseta genérica 19.", price: 20, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Gris", size: ["S", "M", "L"], weight: "175g", warranty: "7 meses" } },
+  { id: 20, name: "Camiseta Genérica 20", description: "Descripción de la camiseta genérica 20.", price: 21, image: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg", details: { color: "Azul", size: ["M", "L", "XL"], weight: "180g", warranty: "6 meses" } },
+  // Continúa con los productos 21 al 50 en la misma estructura
 ];
