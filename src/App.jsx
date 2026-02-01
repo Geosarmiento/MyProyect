@@ -2,7 +2,7 @@
 
 import "./App.scss"
 
-import Header from "./componentes/header/Header.jsx";
+import Header from "./componentes/Header/Header.jsx";
 import Main from "../src/main/Main.jsx";
 import Footer from "./componentes/footer/Footer.jsx"
 
