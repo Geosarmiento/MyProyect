@@ -5,6 +5,8 @@ import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
+  
+    const [ isOpen, setIsOpen ] = useState(false);
 
     const [cartItems, setCartItems] = useState(() => {
     // Cargar carrito inicial desde LocalStorage
@@ -72,14 +74,12 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
-
-
-
-
   return (
     
     <CartContext.Provider value={{ 
-        cartItems, addToCart, removeFromCart, totalItems, totalPrice, decreaseQuantity, clearCart }}>
+        cartItems, addToCart,
+        removeFromCart, totalItems,
+        totalPrice, decreaseQuantity, clearCart, isOpen, setIsOpen }}>
       {children}
     </CartContext.Provider>
   );

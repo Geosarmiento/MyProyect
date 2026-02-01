@@ -6,22 +6,34 @@ import CardSumamry from "../../Cart/CardSummary.jsx"
 
 import { X } from 'lucide-react';
 
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext.jsx";
 
-function Cart({ onClose }) {
+
+
+function Cart() {
+  const { isOpen, setIsOpen } = useContext(CartContext);
+
+
+
   return (
-    <div className="cart-overlay">
+    <div className={`cart-overlay ${isOpen ? "show" : ""}`}
+         >
 
-      <div className="cart">
+      <div className="cart"
+         >
 
-         <X 
-          className="x-icon" 
-          size={20} onClick={onClose} />
+        <X
+          className="x-icon"
+          size={20}
+          onClick={() => setIsOpen(false)} />
 
 
-        <h2>Tu carrito</h2> 
+        <h2>Tu carrito</h2>
 
-        <CartList/>
-        <CardSumamry/>
+        <CartList />
+        <CardSumamry />
+
         {/* productos aquí */}
       </div>
     </div>
