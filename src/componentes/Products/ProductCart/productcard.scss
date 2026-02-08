@@ -1,0 +1,123 @@
+@use "../../../Styles/_variables" as *;
+
+.card {
+  max-width: 290px;
+  height: auto;
+  padding: 16px;
+  background-color: $color-secundario;
+  border-radius: $radius-base;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: $color-primario;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 8px;
+    flex-grow: 1;
+  }
+
+  .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: $color-danger;
+    margin-bottom: 12px;
+  }
+}
+
+.atras:hover{
+  cursor: pointer;
+}
+  /*
+  .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+
+    button,
+    a {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    button {
+      background-color: $color-danger;
+      color: white;
+
+      &:hover {
+        background-color: darken($color-danger, 10%);
+      }
+    }
+
+    .view-details {
+      background-color: #3498db;
+      color: white;
+
+      &:hover {
+        background-color: darken(#3498db, 10%);
+      }
+    }
+  }
+}
+*/
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+  .card {
+    max-width: 320px;
+
+    .img {
+      height: 220px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* Desktop (1024px and up) */
+@media screen and (min-width: 1024px) {
+  .card {
+    max-width: 280px;
+
+    .img {
+      height: 240px;
+    }
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media screen and (min-width: 1440px) {
+  .card {
+    max-width: 300px;
+  }
+}
+

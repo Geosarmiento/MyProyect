@@ -1,53 +1,42 @@
 import React, { useState } from 'react'
 import "./search.scss";
-import ProductCard from '../Products/ProductCard';
+import ProductCard from '../Products/ProductCart/ProductCard.jsx';
 
 import { Search } from 'lucide-react';
 
-
-
-const Searchs = ({data}) => {
+const SearchsP = ({ data }) => {
 
     const [query, setQuery] = useState("");
 
-     const resultados = query ? data.filter(item =>
-         item.name.toLowerCase().includes(query.toLowerCase())
-  ) : [];
+    const resultados = query ? data.filter(item =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+    ) : [];
 
 
-  return (
+    return (
+        <>
+            <div className='inputContainer'>
+                <Search className='searchIcon'
+                    color='#E5E7EB' />
 
-    <>
-<div className='inputContainer'>
+                <input
+                    className='inputSearch'
+                    type='text'
+                    placeholder='Dime que Buscar...'
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
 
-    <Search className='searchIcon'
-        color='#E5E7EB'/>  
+            </div>
 
-    <input 
-        className='inputSearch'
-        type='text'
-        placeholder='Dime que Buscar...'
-        value={query}
-        onChange={(e)=> setQuery(e.target.value)}
-        > </input>
-
-    
-        
-</div>
-
-
-        <div className='search'>
-            {resultados.map(item => (
-        
-          <ProductCard key={item.id} product={item} />
+            <div className='search'>
+                {resultados.map(item => (
+                    <ProductCard key={item.id} product={item} />
                 ))}
-      
-         </div>
-
-
-
+            </div>
         </>
-  )
+    )
 }
 
-export default Searchs;
+
+export default SearchsP;

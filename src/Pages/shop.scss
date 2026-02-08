@@ -1,0 +1,50 @@
+@use "../Styles/_variables.scss" as *;
+
+.card_containerShop {
+  max-width: 1440px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  background-color: $color-grisClaro;
+  padding: 16px;
+  justify-items: center;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+/* Mobile (small phones) */
+@media screen and (min-width: 375px) {
+  .card_containerShop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .card_containerShop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .card_containerShop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 24px;
+  }
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1440px) {
+  .card_containerShop {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    padding: 32px;
+  }
+}

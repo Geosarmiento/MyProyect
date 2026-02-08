@@ -4,7 +4,7 @@ const CardSumary = ({totalItems}) => {
   return (
     <div>
         <h3>Resumen del carrito</h3>
-        <p>total de productos: ${totalItems}</p>
+        <p>Total de productos: {totalItems}</p>
     </div>
   )
 }

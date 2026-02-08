@@ -1,7 +1,6 @@
 import "./productcard.scss"
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext"
-import { Link } from 'react-router-dom';
+import { CartContext } from "../../../context/CartContext.jsx"
 
 const ProductCard = ({ product }) => {
     const { addToCart } = useContext(CartContext)
@@ -15,7 +14,7 @@ const ProductCard = ({ product }) => {
         
         <div className="card-actions">
             <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-            <Link to={`/shop/${product.id}`} className="view-details">Ver detalles</Link>
+            <p>ver detalles</p>
         </div>
     </div>
   )

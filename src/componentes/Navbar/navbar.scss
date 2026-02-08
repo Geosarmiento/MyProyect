@@ -5,7 +5,6 @@
 
 .navbarContainer{
     max-width: 1440px;
-    min-width: 375px;
     margin: auto;
     height: 56px;
     display: flex;
@@ -44,20 +43,47 @@
         display: flex;
         align-items: center;
     }
-
-
-    
-    
  
 }
 
-@media (max-width: 600px) {
+nav a{     
+        padding: 30px 30px;
+        text-decoration: none;
+        font-style: none;
+        font-size: 14px;
+        list-style: none;  
+        color: $color-secundario;
+        font-weight: 400;
+    
+&:hover {
+    transform: translateY(-5px);
+    color: #1a73e8;
+    }
+    a:active{
+        color:  #1a73e8;
+;
+    }
+}
+
+
+
+
+
+@media (max-width: 710px) {
     .navbarContainer{
+        
         .menu{
             display: block;
             cursor: pointer;
         }
     }
+
+    nav{
+        display: none;
+    }
+
+    
+ 
 }
 
 

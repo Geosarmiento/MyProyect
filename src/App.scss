@@ -1,12 +1,24 @@
-/*
+@use "./Styles/_variables.scss" as *;
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+  font-family: 'MiFuente';
+  src: local('Font'), url('./assets/Font/Inter-VariableFont_opsz\,wght.ttf') ;
 }
 
+*{
+  
+  margin: 0 ;
+  padding: 0;
+}
+
+#root {
+  color: $color-primario;
+  background-color: $color-grisClaro;
+  font-family: 'Font', sans-serif;
+}
+
+
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
