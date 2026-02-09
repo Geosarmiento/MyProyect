@@ -13,10 +13,8 @@ const ProductDetail = () => {
 
   const navigate = useNavigate();
 
-
-
   const { id } = useParams(); // Obtener id desde la URL
-  
+
   const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) {

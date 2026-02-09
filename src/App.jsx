@@ -28,6 +28,7 @@ function App() {
               <Route path="/shop/:id" element={<ProductDetail />} />
               <Route path="*" element={<Error404 />} />
             </Routes>
+            
             <Footer />
           </div>
         </BrowserRouter>

@@ -1,6 +1,7 @@
 import ButttonAddToCart from "../../Cart/ButttonAddToCart/ButttonAddToCart.jsx"
 import "./productcard.scss"
 
+import { Link } from "react-router-dom"
 
 const ProductCard = ({ product }) => {
     
@@ -16,7 +17,9 @@ const ProductCard = ({ product }) => {
           
           <ButttonAddToCart product={product} />
 
-          <p>ver detalles</p>
+          <Link key={product.id} to={`/shop/${product.id}`}>
+             <p>ver detalles</p>
+          </Link> 
         </div>
     </div>
   )

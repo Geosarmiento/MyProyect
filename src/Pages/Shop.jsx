@@ -31,9 +31,9 @@ export const Shop = () => {
             <div className='card_containerShop'>
                 {loading ? (<p>Cargando productos...</p>) :
                     (productsState.map((p) => (
-                        <Link key={p.id} to={`/shop/${p.id}`}>
+
                             <ProductCard product={p} />
-                        </Link>
+                        
                     )))}
             </div>
 
