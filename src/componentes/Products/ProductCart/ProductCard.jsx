@@ -1,9 +1,9 @@
+import ButttonAddToCart from "../../Cart/ButttonAddToCart/ButttonAddToCart.jsx"
 import "./productcard.scss"
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext.jsx"
+
 
 const ProductCard = ({ product }) => {
-    const { addToCart } = useContext(CartContext)
+    
 
   return (
     <div className='card'>
@@ -13,8 +13,10 @@ const ProductCard = ({ product }) => {
         <p className="price">${product.price}</p>
         
         <div className="card-actions">
-            <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-            <p>ver detalles</p>
+          
+          <ButttonAddToCart product={product} />
+
+          <p>ver detalles</p>
         </div>
     </div>
   )
