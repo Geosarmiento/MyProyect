@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const { totalItems, isOpen, setIsOpen } = useContext(CartContext);
 
-const { menuOpen, setMenuOpen} = useStade (trud)
+const { menuOpen, setMenuOpen} = useStade (true)
 
     return (
         <div>
@@ -50,7 +50,7 @@ const { menuOpen, setMenuOpen} = useStade (trud)
 
                     <div className='menu'>
 
-                        <Menu
+                        <Menu onClick=
                             color='#F9FAFB' />
                     </div>
 
