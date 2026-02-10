@@ -50,7 +50,7 @@ const { menuOpen, setMenuOpen} = useStade (true)
 
                     <div className='menu'>
 
-                        <Menu onClick=
+                        <Menu onClick={()=>setMenuOpen(!menuOpen)}
                             color='#F9FAFB' />
                     </div>
 
