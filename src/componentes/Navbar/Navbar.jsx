@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const { totalItems, isOpen, setIsOpen } = useContext(CartContext);
 
+const { menuOpen, setMenuOpen} = useStade (trud)
 
     return (
         <div>
