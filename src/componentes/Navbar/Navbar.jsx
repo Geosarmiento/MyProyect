@@ -36,7 +36,7 @@ const Navbar = () => {
                     <Link to="/shop" onClick={() => setMenuOpen(false)}>SHOP  <Store/></Link>
                     <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT <Mail/> </Link>
                 </nav>
-                {menuOpen ? <X /> : <Menu />}
+    
 
                 <nav className='desktopNav'>
                     <Link to="/">HOME </Link>
