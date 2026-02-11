@@ -1,0 +1,10 @@
+@use "../Styles/_variables" as *;
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $color-grisClaro;
+    width: 100%;
+    height: calc(100vh - 80px) ;
+}
