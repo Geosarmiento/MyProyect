@@ -5,8 +5,8 @@ export const usePagination = (data, itemsPerPage = 6) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Resetear página cuando cambian los datos
+  
   useEffect(() => {
-    setCurrentPage(1);
   }, [data]);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
