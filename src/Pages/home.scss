@@ -1,5 +1,5 @@
 @use "../Styles/_variables" as *;
-.home{
+.hero{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,4 +8,45 @@
     width: 100%;
     height: calc(100vh - 80px) ;
     text-align: center;
+    color: #ffff;
+
+    h1{
+        font-size: 250px;
+    }
 }
+
+
+.hero {
+  margin: 0;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(-45deg, #fa08e6, #1a1a1a, #2b0033, #000);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+@media  screen and (max-width: 800px){
+
+    .hero h1{ 
+        font-size: 100px;
+        font-weight: 800;
+        
+    }
+
+    p{
+            font-size: 24px;
+            padding: 24px;
+        }
+
+
+
+}
+    
+
+

@@ -7,3 +7,36 @@ $color-danger:#DC2626;
 $padding-base: 1rem;
 $radius-base: 10px;
 $color-hover: #1a73e8;
+
+
+
+:root {
+  /* Brand Purple */
+  --purple-100: #F3E8FF; /**/
+  --purple-300: #C4B5FD; /**/
+  --purple-500: #8B5CF6; /**/
+  --purple-600: #7C3AED; /**/
+  --purple-700: #6D28D9; /**/
+
+  /* Light Mode */
+  --bg-main: #FFFFFF;       /**/
+  --bg-section: #F5F5F7;    /**/
+  --bg-card: #FFFFFF;       /**/
+
+  --text-primary: #111111;   /**/
+  --text-secondary: #6B7280; /**/
+
+  --border-color: #E5E7EB;   /**/
+}
+
+/* Dark Mode */
+.dark {
+  --bg-main: #0F0F14;
+  --bg-section: #1A1A22;
+  --bg-card: #18181F;
+
+  --text-primary: #F5F5F5;
+  --text-secondary: #A1A1AA;
+
+  --border-color: #2A2A35;
+}
