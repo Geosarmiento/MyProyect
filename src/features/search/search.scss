@@ -1,5 +1,6 @@
 
 @use "../../Styles/_variables" as *;
+@use "../../Styles/_breackpoints" as *;
 
 
 .inputContainer {
@@ -69,19 +70,5 @@ input:focus {
 
 
 
-@media screen and (max-width: 600px) {
-
-    .inputContainer {
-        width: 90%;
-        margin: auto;
-        
-    }
-
-    .inputSearch {
-        width: 100%;
-        
-
-    }
 
 
-}

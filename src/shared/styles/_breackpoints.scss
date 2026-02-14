@@ -1,0 +1,31 @@
+// 📱 Mobile First (base sin media query)
+
+$bp-tablet: 640px;
+$bp-laptop: 1024px;
+$bp-desktop: 1280px;
+$bp-desktop-xl: 1536px;
+
+// Mixins reutilizables
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: $bp-laptop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: $bp-desktop-xl) {
+    @content;
+  }
+}

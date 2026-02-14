@@ -1,0 +1,56 @@
+
+@use "../../Styles/_breackpoints" as *;
+
+
+
+.containerProductDetail{
+    width: 100%;
+    height: calc(100vh - 106px);
+}
+.productDetail{
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+
+.imgProductDetail img{
+    width: 390px;
+ 
+}
+
+.nameProductDetail{
+    padding: 16px;
+    height: auto;
+    
+}
+
+.addCart-btn{
+    margin-top: 24px;
+    margin-bottom: 0px;
+
+}
+
+.btnAtras{
+    padding: 0px 0px;
+}
+
+/*
+@media screen and (max-width: 375px) {
+    .productDetail{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 24px;
+        padding: 24px;
+}
+.imgProductDetail{
+    width: 100%;
+
+}
+
+ 
+  }
+
+*/

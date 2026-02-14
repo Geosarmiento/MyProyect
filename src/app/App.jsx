@@ -1,6 +1,6 @@
-import "./App.scss"
-import Header from "./componentes/Header/Header.jsx";
-import Footer from "./componentes/Footer/Footer.jsx"
+import "./app.scss"
+import Header from "../shared/components/Header/Header.jsx";
+import Footer from "../shared/components/Footer/Footer.jsx"
 
 import { CartProvider } from "./context/CartContext.jsx";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

@@ -14,7 +14,9 @@ const ButttonAddToCart = ( { product } ) => {
 
     return (
         <div>
-             <button onClick={() => addToCart(product)}>Agregar</button>
+             <button className='add-btn' 
+                     onClick={() => addToCart(product)}>Agregar al Carrito
+                      </button>
 
         </div>
     )
