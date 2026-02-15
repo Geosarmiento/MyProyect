@@ -1,4 +1,4 @@
-@use "../Styles/_variables" as *;
+@use "../../shared/styles/_global.scss" as *;
 .hero{
     display: flex;
     justify-content: center;

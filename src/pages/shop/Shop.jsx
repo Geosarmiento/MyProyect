@@ -1,91 +1,45 @@
-import React from 'react'
-import "./shop.scss"
-import { useState, useEffect } from 'react';
+import { useProducts, ProductList } from "../../features/products";
+import { useProductFilters } from "../../features/products/hooks/useProductFilters";
+import { usePagination } from "../../shared/hooks/usePagination"
 
-import ProductCard from "../componentes/Products/ProductCart/ProductCard.jsx";
-import Searchs from "../componentes/Search/Search.jsx";
-import { products } from "../data/products.jsx";
+const Shop = () => {
+  const { products, loading, error } = useProducts();
+  const { filteredProducts, search, setSearch, category, setCategory } = useProductFilters(products);
+  const { currentItems, currentPage, totalPages, goNext, goPrev } = usePagination(filteredProducts, 6);
 
-import { usePagination } from "../hooks/usePagination.js";
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p>Error loading products: {error}</p>;
 
+  return (
+    <div className="shop-page">
+      <h1>Shop</h1>
 
+      {/* Filtros y búsqueda */}
+      <div className="shop-controls">
+        <input 
+          type="text"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search products..."
+        />
+        <select value={category} onChange={e => setCategory(e.target.value)}>
+          <option value="all">All</option>
+          <option value="clothing">Clothing</option>
+          <option value="accessories">Accessories</option>
+        </select>
+      </div>
 
-export const Shop = () => {
+      {/* Lista de productos */}
+      <ProductList products={currentItems} loading={loading} />
 
+      {/* Paginación */}
+      <div className="pagination">
+        <button onClick={goPrev} disabled={currentPage === 1}>Prev</button>
+        <span>{currentPage} / {totalPages}</span>
+        <button onClick={goNext} disabled={currentPage === totalPages}>Next</button>
+      </div>
+    </div>
+  );
+};
 
-
-    const [productsState, setProductsState] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    const { currentPage, totalPages,
-        currentItems, nextPage,
-        prevPage, goToPage } = usePagination(productsState, 10);
-
-
-
-    useEffect(() => {
-
-        setTimeout(() => {
-            setProductsState(products);
-            setLoading(false);
-        }, 1000);
-
-    }, [productsState]); // [] significa que solo se ejecuta una vez al montar el componente
-
-
-
-
-    return (
-        <div>
-
-            <Searchs data={products} setProductsState={setProductsState} />
-
-            <h2>Productos</h2>
-
-            <div className='card_containerShop'>
-                {loading ? (<p>Cargando productos...</p>) :
-                    (currentItems.map((p) => (
-                        <ProductCard key={p.id} product={p} />
-
-                    )))}
-            </div>
-
-
-
-            <div className="pagination">
-
-                <button onClick={prevPage}>
-                    Prev
-                </button>
-
-                {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => goToPage(i + 1)}
-                        className={currentPage === i + 1 ? "active" : ""}
-                    >
-                        {i + 1}
-                    </button>
-                ))}
-
-                <button onClick={nextPage}>
-                    Next
-                </button>
-
-            </div>
-
-
-
-
-
-
-
-
-
-        </div>
-    )
-}
-
-export default Shop
-
-
+export default Shop;

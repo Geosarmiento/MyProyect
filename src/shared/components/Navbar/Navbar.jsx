@@ -1,82 +1,63 @@
-import React from 'react'
-import "./navbar.scss"
-import { ShoppingCart, User, Menu, X, House , Mail, Store, Building2 } from 'lucide-react';
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext.jsx";
-import { useState, useEffect } from 'react';
-
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import { useCart } from "../../../features/cart/hooks/useCart";
+import { useUser } from "../../../features/user/hooks/useUser";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-    const { totalItems, isOpen, setIsOpen } = useContext(CartContext);
+  const { cartItems } = useCart();
+  const { user, login, logout } = useUser();
 
-    const [ menuOpen, setMenuOpen] = useState (false);
+  const [animatedCount, setAnimatedCount] = useState(0);
 
-    useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
-  }, [menuOpen]);
+  // Animación simple al cambiar el carrito
+  useEffect(() => {
+    setAnimatedCount(cartItems.reduce((acc, item) => acc + item.quantity, 0));
+  }, [cartItems]);
 
+  return (
+    <nav style={styles.nav}>
+      <div style={styles.logo}>
+        <Link to="/">MyStore</Link>
+      </div>
 
-    
-    return (
-        <div>
-            <div className="navbarContainer">
-                <div>
-                    <h2>MyApp</h2>
-                </div>
+      <div style={styles.links}>
+        <Link to="/">Home</Link>
+        <Link to="/shop">Shop</Link>
+      </div>
 
-            
+      <div style={styles.actions}>
+        <Link to="/cart">
+          Cart (<span style={{ transition: "all 0.3s", fontWeight: "bold" }}>{animatedCount}</span>)
+        </Link>
 
-                <nav className={`mobileNav ${menuOpen ? "open" : ""}`}>
-                
-                    
-                    <Link to="/" onClick={() => setMenuOpen(false)}> HOME <House/> </Link>
-                    <Link to="/about" onClick={() => setMenuOpen(false)}>ABOUT     <Building2 /></Link>
-                    <Link to="/shop" onClick={() => setMenuOpen(false)}>SHOP  <Store/></Link>
-                    <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT <Mail/> </Link>
-                </nav>
-    
+        {user ? (
+          <>
+            <span style={{ marginLeft: "1rem" }}>Hola, {user.name}</span>
+            <button style={styles.button} onClick={logout}>Logout</button>
+          </>
+        ) : (
+          <button style={styles.button} onClick={() => login({ name: "Juan", id: 1 })}>
+            Login
+          </button>
+        )}
+      </div>
+    </nav>
+  );
+};
 
-                <nav className='desktopNav'>
-                    <Link to="/">HOME </Link>
-                    <Link to="/about">ABOUT </Link>
-                    <Link to="/shop">SHOP </Link>
-                    <Link to="/contact">CONTACT </Link>
-                </nav>
+const styles = {
+  nav: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "1rem 2rem",
+    borderBottom: "1px solid #ddd",
+    alignItems: "center",
+    backgroundColor: "#fff"
+  },
+  logo: { fontWeight: "bold", fontSize: "1.5rem" },
+  links: { display: "flex", gap: "1rem" },
+  actions: { display: "flex", alignItems: "center", gap: "1rem" },
+  button: { padding: "0.3rem 0.8rem", cursor: "pointer" }
+};
 
-                <div className='iconContainer'>
-                    <div className='user'>
-                        <User
-                            color='#F9FAFB' />
-                    </div>
-
-                    <div className='shoppingCart'>
-
-                        <ShoppingCart
-                            onClick={() => setIsOpen(!isOpen)}
-                            color='#F9FAFB' />
-
-                        <span className='totalItem'>{totalItems}</span>
-                    </div>
-
-                    
-
-                     {menuOpen ? <X  className='xMenu'
-                                     color='#F9FAFB'
-                                     onClick={() => setMenuOpen(false)}
-                                      /> : <Menu  className='menu'
-                            onClick={() => setMenuOpen(!menuOpen)}
-                            color='#F9FAFB' />}
-                    
-
-                </div>
-
-
-            </div>
-
-        </div>
-    )
-}
-
-export default Navbar
+export default Navbar;

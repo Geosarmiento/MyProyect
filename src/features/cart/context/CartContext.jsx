@@ -1,33 +1,35 @@
 import { createContext, useState, useEffect } from "react";
-
-
-
+import { useUser } from "../../user/hooks/useUser";
 
 export const CartContext = createContext();
+
 export const CartProvider = ({ children }) => {
-  
-    const [ isOpen, setIsOpen ] = useState(false);
+  const { user } = useUser(); // obtenemos usuario
+  const [cartItems, setCartItems] = useState([]);
 
-    const [cartItems, setCartItems] = useState(() => {
-    // Cargar carrito inicial desde LocalStorage
-    const storedCart = localStorage.getItem("cartItems");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
-
-  // Guardar en LocalStorage cada vez que cartItems cambie
+  // Cargar carrito desde localStorage por usuario
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (user) {
+      const storedCart = localStorage.getItem(`cart_${user.id}`);
+      if (storedCart) setCartItems(JSON.parse(storedCart));
+      else setCartItems([]);
+    } else {
+      setCartItems([]);
+    }
+  }, [user]);
 
-    
+  // Guardar carrito en localStorage cuando cambia
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem(`cart_${user.id}`, JSON.stringify(cartItems));
+    }
+  }, [cartItems, user]);
 
- // función para agregar un producto
   const addToCart = (product) => {
-    setCartItems((prev) => {
-      const exist = prev.find((item) => item.id === product.id);
-      if (exist) {
-        // si ya existe, incrementa la cantidad
-        return prev.map((item) =>
+    setCartItems(prev => {
+      const existing = prev.find(item => item.id === product.id);
+      if (existing) {
+        return prev.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
@@ -38,48 +40,14 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  
-
-  // cantidad total de productos
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  // precio total del carrito
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-
-
-  // disminuir cantidad (-1)
-  const decreaseQuantity = (id) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
+  const removeFromCart = (productId) => {
+    setCartItems(prev => prev.filter(item => item.id !== productId));
   };
 
-  // eliminar producto completamente
-  const removeFromCart = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  // vaciar carrito
-  const clearCart = () => {
-    setCartItems([]);
-  };
+  const clearCart = () => setCartItems([]);
 
   return (
-    
-    <CartContext.Provider value={{ 
-        cartItems, addToCart,
-        removeFromCart, totalItems,
-        totalPrice, decreaseQuantity, clearCart, isOpen, setIsOpen }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,9 +1,18 @@
-import React from 'react'
-
 const Footer = () => {
   return (
-    <div><small>@ 2026</small></div>
-  )
-}
+    <footer style={styles.footer}>
+      <p>© 2026 MyStore. All rights reserved.</p>
+    </footer>
+  );
+};
 
-export default Footer
+const styles = {
+  footer: {
+    marginTop: "2rem",
+    padding: "1rem",
+    borderTop: "1px solid #ddd",
+    textAlign: "center"
+  }
+};
+
+export default Footer;

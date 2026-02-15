@@ -1,48 +1,17 @@
-import { useState, useEffect } from "react";
+// hooks/usePagination.js
+import { useState } from "react";
 
-export const usePagination = (data, itemsPerPage = 6) => {
-    
+export const usePagination = (items, itemsPerPage = 6) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(items.length / itemsPerPage);
 
-  // Resetear página cuando cambian los datos
-  
-  useEffect(() => {
-  }, [data]);
-
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-  const currentItems = data.slice(
-    indexOfFirstItem,
-    indexOfLastItem
+  const currentItems = items.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
   );
 
-  const nextPage = () => {
-    setCurrentPage(prev =>
-      Math.min(prev + 1, totalPages)
-    );
-  };
+  const goNext = () => setCurrentPage(p => Math.min(p + 1, totalPages));
+  const goPrev = () => setCurrentPage(p => Math.max(p - 1, 1));
 
-  const prevPage = () => {
-    setCurrentPage(prev =>
-      Math.max(prev - 1, 1)
-    );
-  };
-
-  const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
-
-  return {
-    currentPage,
-    totalPages,
-    currentItems,
-    nextPage,
-    prevPage,
-    goToPage
-  };
+  return { currentItems, currentPage, totalPages, goNext, goPrev };
 };
